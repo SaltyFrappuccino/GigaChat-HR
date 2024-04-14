@@ -1,21 +1,30 @@
 # GigaChat HR API
 
- ## Навигация
- ### 
+## Запуск
 
-
-## Инструкция по запуску проекта через Docker
+### Инструкция по запуску проекта через Docker
 
 Из корневой папки проекта:
-```cmd
+```shell
 docker build -t [your_image_name] .
 ```
 А затем:
-```cmd
+```shell
 docker run -d -p 8000:8000 [your_image_name]
 ```
 
 После запуска контейнера вы сможете взаимодействовать с API, используя HTTP-запросы.
+
+### Запуск проекта через Python
+Установить зависимости:
+```shell
+pip install -r requirements.txt
+```
+
+И запустить с:
+```shell
+uvicorn app.main:app --host 127.0.0.1 --port 8000
+```
 
 ## Swagger UI 
 
