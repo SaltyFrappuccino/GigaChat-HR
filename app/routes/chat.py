@@ -45,6 +45,7 @@ async def chat(message: Message):
     messages.append(message)
     return response.json()['choices'][0]['message']['content']
 
+
 @chat_router.get("/")
 async def get_messages():
     return messages

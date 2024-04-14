@@ -1,11 +1,11 @@
+import uvicorn
 from fastapi import FastAPI
-from fastapi.openapi.utils import get_openapi
 from fastapi.openapi.docs import get_swagger_ui_html
+from fastapi.openapi.utils import get_openapi
 from fastapi.responses import RedirectResponse
+
 from app.routes.chat import chat_router
 from app.routes.vacancy import vacancy_router
-
-import uvicorn
 
 app = FastAPI()
 app.include_router(vacancy_router)
@@ -49,4 +49,4 @@ async def redirect_root_to_docs():
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8000)
