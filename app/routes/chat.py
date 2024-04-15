@@ -5,6 +5,7 @@ import requests
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
+from app.utils.config import debug
 from app.utils.token import get_token
 
 chat_router = APIRouter(prefix="/chat")
@@ -39,6 +40,8 @@ async def chat(message: Message):
     }
 
     response = requests.request("POST", url, headers=headers, data=payload, verify=False)
+    if debug == True:
+        print(response.json())
     role = response.json()['choices'][0]['message']['role']
     content = response.json()['choices'][0]['message']['content']
     message = {'role': role, 'content': content}
