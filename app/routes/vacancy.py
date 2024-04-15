@@ -86,10 +86,10 @@ async def check(file: Annotated[UploadFile, Form()], position: Annotated[str, Fo
 
 @vacancy_router.post("/contact")
 async def contact(file: Annotated[UploadFile, Form()]):
-    messages = []
     '''
     На вход принимает form-data с полем file, который является pdf-файлом, в респонс возвращает контакт, который нашёл Гигачат в формате [название контактной информации]: контактные данные\n
     '''
+    messages = []
     reader = PdfReader(file.file)
     data = ""
     for i in range(0, reader.get_num_pages()):
